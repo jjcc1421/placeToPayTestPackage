@@ -39,5 +39,20 @@ class PlaceToPay
         return $banks;
     }
 
+    public static function createTransaction()
+    {
+
+    }
+
+    public static function getTransactionInformation()
+    {
+
+    }
+
+    public static function createTransactionMultiCredit()
+    {
+
+    }
+
 
 }
