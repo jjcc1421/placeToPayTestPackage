@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7870f235-53fb-4520-9b46-fa669eb34c84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPay.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Person.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Person.php" />
     </list>
     <ignored path="place_to_pay_test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +51,8 @@
       <file leaf-file-name="Person.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Person.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3261391">
-              <caret line="39" column="56" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.4292566">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -150,6 +150,8 @@
       <command text="git add ." />
       <command text="git commit -m &quot;Add module manager&quot;" />
       <command text="git status" />
+      <command text="git add ." />
+      <command text="git commit -m &quot;Person&quot;" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -548,8 +550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Person.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3261391">
-          <caret line="39" column="56" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.4292566">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding />
         </state>
       </provider>
