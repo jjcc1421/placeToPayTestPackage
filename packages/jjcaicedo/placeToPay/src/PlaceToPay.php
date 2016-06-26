@@ -5,6 +5,7 @@ namespace JJCaicedo\PlaceToPay;
 use JJCaicedo\PlaceToPay\Models\Authentication;
 use JJCaicedo\PlaceToPay\Models\Bank;
 use JJCaicedo\PlaceToPay\Models\PSETransactionRequest;
+use JJCaicedo\PlaceToPay\Models\PSETransactionResponse;
 use SoapClient;
 
 class PlaceToPay
@@ -43,6 +44,11 @@ class PlaceToPay
     {
         $params = ["auth" => self::$auth,
             "transaction" => $transactionRequest];
+        $client = new SoapClient(self::$wsdl);
+        $response = $client->__soapCall('getBankList', array($params));
+        return new PSETransactionResponse($response);
+
+
     }
 
     public static function getTransactionInformation()
