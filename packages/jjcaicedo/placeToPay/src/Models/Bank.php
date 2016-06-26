@@ -3,8 +3,8 @@ namespace JJCaicedo\PlaceToPay\Models;
 
 class Bank
 {
-    private $code;
-    private $name;
+    protected $code;
+    protected $name;
 
     public function __construct($bankCode, $bankName)
     {

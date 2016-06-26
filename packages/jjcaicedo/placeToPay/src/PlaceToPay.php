@@ -4,6 +4,7 @@ namespace JJCaicedo\PlaceToPay;
 
 use JJCaicedo\PlaceToPay\Models\Authentication;
 use JJCaicedo\PlaceToPay\Models\Bank;
+use SoapClient;
 
 class PlaceToPay
 {

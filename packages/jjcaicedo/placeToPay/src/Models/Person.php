@@ -13,17 +13,17 @@ use Mockery\Exception;
 
 class Person
 {
-    private $document;
-    private $documentType;
-    private $firstName;
-    private $lastName;
-    private $company;
-    private $emailAddress;
-    private $city;
-    private $province;
-    private $phone;
-    private $country;
-    private $mobile;
+    protected $document;
+    protected $documentType;
+    protected $firstName;
+    protected $lastName;
+    protected $company;
+    protected $emailAddress;
+    protected $city;
+    protected $province;
+    protected $phone;
+    protected $country;
+    protected $mobile;
 
     /**
      * Person constructor.
