@@ -72,8 +72,12 @@ class Authentication
     }
 
 
+    /**
+     * @return string
+     */
     public function generateHashKey()
     {
-
+        $seed = date('c');
+        return sha1($seed . $this->tranKey, false);
     }
 }

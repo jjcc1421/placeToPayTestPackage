@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7870f235-53fb-4520-9b46-fa669eb34c84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPayController.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPayController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPayServiceProvider.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/PlaceToPayServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/routes.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Authentication.php" afterPath="$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Authentication.php" />
     </list>
     <ignored path="place_to_pay_test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +49,8 @@
       <file leaf-file-name="Authentication.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7553957">
-              <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+            <state vertical-scroll-proportion="3.0167866">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -122,6 +120,8 @@
       <command text="php artisan make:controller PlaceToPayController" />
       <command text="git add ." />
       <command text="git commit -m &quot;Created base package&quot;" />
+      <command text="git add . " />
+      <command text="git commit -m &quot;Add models&quot;" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -467,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/jjcaicedo/placeToPay/src/Models/Authentication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7553957">
-          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+        <state vertical-scroll-proportion="3.0167866">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
