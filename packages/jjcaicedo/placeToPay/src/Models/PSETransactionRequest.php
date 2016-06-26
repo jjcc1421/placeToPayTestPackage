@@ -32,43 +32,31 @@ class PSETransactionRequest
 
     /**
      * PSETransactionRequest constructor.
-     * @param $bankCode
-     * @param $bankInterface
-     * @param $returnURL
-     * @param $reference
-     * @param $description
-     * @param $language
-     * @param $currency
-     * @param $totalAmount
-     * @param $taxAmount
-     * @param $devolutionBase
-     * @param $tipAmount
-     * @param \JJCaicedo\PlaceToPay\Models\Person $payer
-     * @param \JJCaicedo\PlaceToPay\Models\Person $buyer
-     * @param \JJCaicedo\PlaceToPay\Models\Person $shipping
-     * @param $ipAddress
-     * @param $userAgent
-     * @param $additionalData
+     * @param $params
      */
-    public function __construct($bankCode, $bankInterface, $returnURL, $reference, $description, $language, $currency, $totalAmount, $taxAmount, $devolutionBase, $tipAmount, Person $payer, Person $buyer, Person $shipping, $ipAddress, $userAgent, $additionalData)
+    public function __construct($params)
     {
-        $this->bankCode = $bankCode;
-        $this->bankInterface = $bankInterface;
-        $this->returnURL = $returnURL;
-        $this->reference = $reference;
-        $this->description = $description;
-        $this->language = $language;
-        $this->currency = $currency;
-        $this->totalAmount = $totalAmount;
-        $this->taxAmount = $taxAmount;
-        $this->devolutionBase = $devolutionBase;
-        $this->tipAmount = $tipAmount;
-        $this->payer = $payer;
-        $this->buyer = $buyer;
-        $this->shipping = $shipping;
-        $this->ipAddress = $ipAddress;
-        $this->userAgent = $userAgent;
-        $this->additionalData = $additionalData;
+        if (is_array($params)) {
+            $this->bankCode = $params['bankCode'];
+            $this->bankInterface = $params['bankInterface'];
+            $this->returnURL = $params['returnURL'];
+            $this->reference = $params['reference'];
+            $this->description = $params['description'];
+            $this->language = $params['language'];
+            $this->currency = $params['currency'];
+            $this->totalAmount = $params['totalAmount'];
+            $this->taxAmount = $params['taxAmount'];
+            $this->devolutionBase = $params['devolutionBase'];
+            $this->tipAmount = $params['tipAmount'];
+            $this->payer = $params['payer'];
+            $this->buyer = $params['buyer'];
+            $this->shipping = $params['shipping'];
+            $this->ipAddress = $params['ipAddress'];
+            $this->userAgent = $params['userAgent'];
+            $this->additionalData = $params['additionalData'];
+        } else {
+            throwException(new Exception("Not supported params"));
+        }
     }
 
     /**
@@ -206,7 +194,6 @@ class PSETransactionRequest
     {
         return $this->additionalData;
     }
-
 
 
 }

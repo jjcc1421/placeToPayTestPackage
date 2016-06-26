@@ -32,17 +32,17 @@ class Person
     public function __construct($params)
     {
         if (is_array($params)) {
-            $this->document = $params['document'] ? $params['document'] : null;
-            $this->documentType = $params['documentType'] ? $params['documentType'] : null;
-            $this->firstName = $params['firstName'] ? $params['firstName'] : null;
-            $this->lastName = $params['lastName'] ? $params['lastName'] : null;
-            $this->company = $params['company'] ? $params['company'] : null;
-            $this->emailAddress = $params['emailAddress'] ? $params['emailAddress'] : null;
-            $this->city = $params['city'] ? $params['city'] : null;
-            $this->province = $params['province'] ? $params['province'] : null;
-            $this->phone = $params['phone'] ? $params['phone'] : null;
-            $this->country = $params['country'] ? $params['country'] : null;
-            $this->mobile = $params['mobile'] ? $params['mobile'] : null;
+            $this->document = $params['document'];
+            $this->documentType = $params['documentType'];
+            $this->firstName = $params['firstName'];
+            $this->lastName = $params['lastName'];
+            $this->company = $params['company'];
+            $this->emailAddress = $params['emailAddress'];
+            $this->city = $params['city'];
+            $this->province = $params['province'];
+            $this->phone = $params['phone'];
+            $this->country = $params['country'];
+            $this->mobile = $params['mobile'];
         } else {
             throwException(new Exception("Not supported params"));
         }
