@@ -13,12 +13,14 @@ class Authentication
 {
     private $login;
     private $tranKey;
+    private $seed;
     private $additional;
 
     public function __construct($login, $tranKey, $additional)
     {
         $this->login = $login;
-        $this->tranKey = $tranKey;
+        $this->seed = date('c');
+        $this->tranKey = $this->generateHashKey($tranKey);
         if ($additional)
             $this->additional = $additional;
     }
@@ -75,9 +77,8 @@ class Authentication
     /**
      * @return string
      */
-    public function generateHashKey()
+    private function generateHashKey($tranKey)
     {
-        $seed = date('c');
-        return sha1($seed . $this->tranKey, false);
+        return sha1($this->seed . $tranKey, false);
     }
 }

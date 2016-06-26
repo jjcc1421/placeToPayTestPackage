@@ -9,7 +9,7 @@ class Bank
     public function __construct($bankCode, $bankName)
     {
         $this->code = $bankCode;
-        $this->name = $bankCode;
+        $this->name = $bankName;
     }
 
     /**

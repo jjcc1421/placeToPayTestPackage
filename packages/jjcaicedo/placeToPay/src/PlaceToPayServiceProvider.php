@@ -26,6 +26,7 @@ class PlaceToPayServiceProvider extends ServiceProvider
         //
         include __DIR__.'/routes.php';
         $this->app->make('JJCaicedo\PlaceToPay\PlaceToPayController');
-        $this->app->make('JJCaicedo\PlaceToPay\Models\Bank');
+        //$this->app->make('JJCaicedo\PlaceToPay\Models\Bank');
+        //$this->app->make('JJCaicedo\PlaceToPay\Models\Authentication');
     }
 }
