@@ -74,7 +74,7 @@ class PlaceToPay
             "transactionID" => $transactionID];
         $client = new SoapClient(self::$wsdl);
         $response = $client->__soapCall('getTransactionInformation', array($params));
-        $transactionInformation = new TransactionInformation($response);
+        $transactionInformation = new TransactionInformation(get_object_vars($response->getTransactionInformationResult));
         $payment = new Payment;
         $payment->status = $transactionInformation->getReturnCode();
         $payment->transaction_id = $transactionInformation->getTransactionID();

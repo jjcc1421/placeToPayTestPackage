@@ -59,7 +59,8 @@ class PaymentController extends Controller
             'userAgent' => 'php unit'
         ];
         $transactionRequest = new \JJCaicedo\PlaceToPay\Models\PSETransactionRequest($transactionRequest);
-        $result=\JJCaicedo\PlaceToPay\PlaceToPay::createTransaction($transactionRequest);
+        $result = \JJCaicedo\PlaceToPay\PlaceToPay::createTransaction($transactionRequest);
+        $transactionInformation = \JJCaicedo\PlaceToPay\PlaceToPay::getTransactionInformation($result->getTransactionID());
         return null;
 
 
