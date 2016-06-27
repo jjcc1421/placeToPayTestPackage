@@ -1,26 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
-use JJCaicedo\PlaceToPay\Models\Authentication;
-use JJCaicedo\PlaceToPay\Models\Bank;
-use JJCaicedo\PlaceToPay\PlaceToPay;
-use Illuminate\Support\Facades\Redirect;
-
-class PaymentController extends Controller
+class PaymentTest extends TestCase
 {
-    public function index()
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testExample()
     {
-        /*$auth = new Authentication('6dd490faf9cb87a9862245da41170ff2', '024h1IlD', null);
-        PlaceToPay::connect($auth, 'https://test.placetopay.com/soap/pse/?wsdl');
-        $banks = PlaceToPay::getBankList();
-        return View('index', ['banks' => $banks]);*/
+        $this->assertTrue(true);
+    }
 
+    public function testPayment()
+    {
+        //1022
 
         $auth = new \JJCaicedo\PlaceToPay\Models\Authentication('6dd490faf9cb87a9862245da41170ff2', '024h1IlD', null);
         \JJCaicedo\PlaceToPay\PlaceToPay::connect($auth, 'https://test.placetopay.com/soap/pse/?wsdl');
@@ -59,9 +58,6 @@ class PaymentController extends Controller
             'userAgent' => 'php unit'
         ];
         $transactionRequest = new \JJCaicedo\PlaceToPay\Models\PSETransactionRequest($transactionRequest);
-        $result=\JJCaicedo\PlaceToPay\PlaceToPay::createTransaction($transactionRequest);
-        return null;
-
-
+        \JJCaicedo\PlaceToPay\PlaceToPay::createTransaction($transactionRequest);
     }
 }

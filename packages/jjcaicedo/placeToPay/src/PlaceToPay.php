@@ -42,16 +42,20 @@ class PlaceToPay
         return $banks;
     }
 
+    /**
+     * @param PSETransactionRequest $transactionRequest
+     * @return PSETransactionResponse
+     */
     public static function createTransaction(PSETransactionRequest $transactionRequest)
     {
         $params = ["auth" => self::$auth,
             "transaction" => $transactionRequest];
         $client = new SoapClient(self::$wsdl);
-        $response = $client->__soapCall('getBankList', array($params));
-        $pseResponse = new PSETransactionResponse($response);
+        $response = $client->__soapCall('createTransaction', array($params));
+        $pseResponse = new PSETransactionResponse(get_object_vars($response->createTransactionResult));
 
         $payment = new Payment;
-        $payment->status = "SENT";
+        $payment->status = $pseResponse->getReturnCode();
         $payment->transaction_id = $pseResponse->getTransactionID();
         $payment->save();
 
@@ -60,12 +64,16 @@ class PlaceToPay
 
     }
 
+    /**
+     * @param $transactionID
+     * @return TransactionInformation
+     */
     public static function getTransactionInformation($transactionID)
     {
         $params = ["auth" => self::$auth,
             "transactionID" => $transactionID];
         $client = new SoapClient(self::$wsdl);
-        $response = $client->__soapCall('getBankList', array($params));
+        $response = $client->__soapCall('getTransactionInformation', array($params));
         $transactionInformation = new TransactionInformation($response);
         $payment = new Payment;
         $payment->status = $transactionInformation->getReturnCode();

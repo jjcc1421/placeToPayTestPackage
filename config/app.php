@@ -157,8 +157,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        //other providers
-        JJCaicedo\PlaceToPay\PlaceToPayServiceProvider::class,
 
     ],
 

@@ -40,8 +40,12 @@ class Person
             $this->phone = $params['phone'];
             $this->country = $params['country'];
             $this->mobile = $params['mobile'];
+            foreach (get_object_vars($this) as $key => $attribute) {
+                if (!isset($attribute))
+                    throw (new \Exception("Not defined $key"));
+            }
         } else {
-            throwException(new \Exception("Not supported params"));
+            throw (new \Exception("Not supported params"));
         }
     }
 

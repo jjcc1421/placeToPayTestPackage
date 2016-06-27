@@ -9,6 +9,7 @@
 namespace JJCaicedo\PlaceToPay\Models;
 
 use JJCaicedo\PlaceToPay\Models\Person;
+use Illuminate\Http\Request;
 
 class PSETransactionRequest
 {
@@ -51,11 +52,18 @@ class PSETransactionRequest
             $this->payer = $params['payer'];
             $this->buyer = $params['buyer'];
             $this->shipping = $params['shipping'];
+            $this->additionalData = $params['additionalData'];
             $this->ipAddress = $params['ipAddress'];
             $this->userAgent = $params['userAgent'];
-            $this->additionalData = $params['additionalData'];
+
+            foreach (get_object_vars($this) as $key => $attribute) {
+                if (!isset($attribute))
+                    if ($key != 'additionalData')
+                        throw (new \Exception("Not defined $key"));
+            }
+
         } else {
-            throwException(new \Exception("Not supported params"));
+            throw (new \Exception("Not supported params"));
         }
     }
 
@@ -193,6 +201,142 @@ class PSETransactionRequest
     public function getAdditionalData()
     {
         return $this->additionalData;
+    }
+
+    /**
+     * @param mixed $bankCode
+     */
+    public function setBankCode($bankCode)
+    {
+        $this->bankCode = $bankCode;
+    }
+
+    /**
+     * @param mixed $bankInterface
+     */
+    public function setBankInterface($bankInterface)
+    {
+        $this->bankInterface = $bankInterface;
+    }
+
+    /**
+     * @param string $returnURL
+     */
+    public function setReturnURL($returnURL)
+    {
+        $this->returnURL = $returnURL;
+    }
+
+    /**
+     * @param mixed $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param mixed $language
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * @param mixed $currency
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
+    /**
+     * @param mixed $totalAmount
+     */
+    public function setTotalAmount($totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
+    }
+
+    /**
+     * @param mixed $taxAmount
+     */
+    public function setTaxAmount($taxAmount)
+    {
+        $this->taxAmount = $taxAmount;
+    }
+
+    /**
+     * @param mixed $devolutionBase
+     */
+    public function setDevolutionBase($devolutionBase)
+    {
+        $this->devolutionBase = $devolutionBase;
+    }
+
+    /**
+     * @param mixed $tipAmount
+     */
+    public function setTipAmount($tipAmount)
+    {
+        $this->tipAmount = $tipAmount;
+    }
+
+    /**
+     * @param mixed $payer
+     */
+    public function setPayer($payer)
+    {
+        $this->payer = $payer;
+    }
+
+    /**
+     * @param mixed $buyer
+     */
+    public function setBuyer($buyer)
+    {
+        $this->buyer = $buyer;
+    }
+
+    /**
+     * @param mixed $shipping
+     */
+    public function setShipping($shipping)
+    {
+        $this->shipping = $shipping;
+    }
+
+    /**
+     * @param mixed $ipAddress
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->ipAddress = $ipAddress;
+    }
+
+    /**
+     * @param mixed $userAgent
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->userAgent = $userAgent;
+    }
+
+    /**
+     * @param mixed $additionalData
+     */
+    public function setAdditionalData($additionalData)
+    {
+        $this->additionalData = $additionalData;
     }
 
 

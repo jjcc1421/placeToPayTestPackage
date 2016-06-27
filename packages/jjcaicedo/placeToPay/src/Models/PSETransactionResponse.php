@@ -42,7 +42,7 @@ class PSETransactionResponse
             $this->responseReasonCode = $params['responseReasonCode'];
             $this->responseReasonText = $params['responseReasonText'];
         } else {
-            throwException(new \Exception("Not supported params"));
+            throw (new \Exception("Not supported params"));
         }
     }
 
