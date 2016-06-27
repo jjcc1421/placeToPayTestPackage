@@ -55,7 +55,7 @@ class PSETransactionRequest
             $this->userAgent = $params['userAgent'];
             $this->additionalData = $params['additionalData'];
         } else {
-            throwException(new Exception("Not supported params"));
+            throwException(new \Exception("Not supported params"));
         }
     }
 

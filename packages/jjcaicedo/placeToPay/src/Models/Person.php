@@ -8,9 +8,6 @@
 
 namespace JJCaicedo\PlaceToPay\Models;
 
-
-use Mockery\Exception;
-
 class Person
 {
     protected $document;
@@ -44,7 +41,7 @@ class Person
             $this->country = $params['country'];
             $this->mobile = $params['mobile'];
         } else {
-            throwException(new Exception("Not supported params"));
+            throwException(new \Exception("Not supported params"));
         }
     }
 
