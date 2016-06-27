@@ -4,6 +4,7 @@ namespace JJCaicedo\PlaceToPay;
 
 use JJCaicedo\PlaceToPay\Models\Authentication;
 use JJCaicedo\PlaceToPay\Models\Bank;
+use JJCaicedo\PlaceToPay\Models\Payment;
 use JJCaicedo\PlaceToPay\Models\PSETransactionRequest;
 use JJCaicedo\PlaceToPay\Models\PSETransactionResponse;
 use JJCaicedo\PlaceToPay\Models\TransactionInformation;
@@ -47,7 +48,14 @@ class PlaceToPay
             "transaction" => $transactionRequest];
         $client = new SoapClient(self::$wsdl);
         $response = $client->__soapCall('getBankList', array($params));
-        return new PSETransactionResponse($response);
+        $pseResponse = new PSETransactionResponse($response);
+
+        $payment = new Payment;
+        $payment->status = "SENT";
+        $payment->transaction_id = $pseResponse->getTransactionID();
+        $payment->save();
+
+        return $pseResponse;
 
 
     }
@@ -58,9 +66,13 @@ class PlaceToPay
             "transactionID" => $transactionID];
         $client = new SoapClient(self::$wsdl);
         $response = $client->__soapCall('getBankList', array($params));
-        return new TransactionInformation($response);
+        $transactionInformation = new TransactionInformation($response);
+        $payment = new Payment;
+        $payment->status = $transactionInformation->getReturnCode();
+        $payment->transaction_id = $transactionInformation->getTransactionID();
+        $payment->save();
+        return $transactionInformation;
     }
-
 
 
 }
