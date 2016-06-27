@@ -7,5 +7,7 @@
             "email": "jjcc1421@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/database": "^5.2"
+    }
 }

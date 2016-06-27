@@ -6,6 +6,7 @@ use JJCaicedo\PlaceToPay\Models\Authentication;
 use JJCaicedo\PlaceToPay\Models\Bank;
 use JJCaicedo\PlaceToPay\Models\PSETransactionRequest;
 use JJCaicedo\PlaceToPay\Models\PSETransactionResponse;
+use JJCaicedo\PlaceToPay\Models\TransactionInformation;
 use SoapClient;
 
 class PlaceToPay
@@ -51,15 +52,15 @@ class PlaceToPay
 
     }
 
-    public static function getTransactionInformation()
+    public static function getTransactionInformation($transactionID)
     {
-
+        $params = ["auth" => self::$auth,
+            "transactionID" => $transactionID];
+        $client = new SoapClient(self::$wsdl);
+        $response = $client->__soapCall('getBankList', array($params));
+        return new TransactionInformation($response);
     }
 
-    public static function createTransactionMultiCredit()
-    {
-
-    }
 
 
 }
